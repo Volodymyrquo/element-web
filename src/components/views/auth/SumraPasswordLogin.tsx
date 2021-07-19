@@ -14,14 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
 import React from 'react';
 import classNames from 'classnames';
 import * as sdk from "matrix-react-sdk/src/index";
 
 import { _t } from 'matrix-react-sdk/src/languageHandler';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
-import {ValidatedServerConfig} from "matrix-react-sdk/src/utils/AutoDiscoveryUtils";
+import { ValidatedServerConfig } from "matrix-react-sdk/src/utils/AutoDiscoveryUtils";
 import AccessibleButton from "matrix-react-sdk/src/components/views/elements/AccessibleButton";
 import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
 import withValidation from "matrix-react-sdk/src/components/views/elements/Validation";
@@ -53,8 +52,8 @@ interface IProps {
 
 interface IState {
     fieldValid: Partial<Record<LoginField, boolean>>;
-    loginType: LoginField.Email | LoginField.MatrixId | LoginField.Phone,
-    password: "",
+    loginType: LoginField.Email | LoginField.MatrixId | LoginField.Phone;
+    password: "";
 }
 
 enum LoginField {
@@ -168,7 +167,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
     };
 
     private onPasswordChanged = ev => {
-        this.setState({password: ev.target.value});
+        this.setState({ password: ev.target.value });
     };
 
     private async verifyFieldsBeforeSubmit() {
@@ -324,7 +323,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         const result = await this.validatePasswordRules(fieldState);
         this.markFieldValid(LoginField.Password, result.valid);
         return result;
-    }
+    };
 
     private renderLoginField(loginType: IState["loginType"], autoFocus: boolean) {
         const classes = {
@@ -352,8 +351,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                 />;
             case LoginField.MatrixId:
                 classes.error = this.props.loginIncorrect && !this.props.username;
-                return   <fieldset className="sumra-input-fieldset">
-
+                return <fieldset className="sumra-input-fieldset">
 
                     <input
                         type="text"
@@ -361,11 +359,11 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                         value={this.props.username}
                         onChange={this.onUsernameChanged}
                     />
-                </fieldset>
-                /*       
+                </fieldset>;
+                /*
                 <Field
                     className="sumra-input-fieldset"
-                
+
                     name="username" // make it a little easier for browser's remember-password
                     key="username_input"
                     type="text"
@@ -444,7 +442,6 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         const autoFocusPassword = !this.isLoginEmpty();
         const loginField = this.renderLoginField(this.state.loginType, !autoFocusPassword);
 
-
         let loginType;
         if (!SdkConfig.get().disable_3pid_login) {
             loginType = (
@@ -494,24 +491,21 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
 
                     <fieldset className="sumra-input-fieldset">
 
-                      
-
                         <input
                             type="password"
                             placeholder="Enter password"
                             value={this.state.password}
                             onChange={this.onPasswordChanged}
                         />
-                          <img className="sumra-input-fieldset-icon" src={eye} />
+                        <img className="sumra-input-fieldset-icon" src={eye} />
                     </fieldset>
-
 
                     <button className="sumra-Button"
                         type="submit"
                         disabled={this.props.disableSubmit}
-                        style={{marginTop: '25px'}}
-                    >   
-                        <span>{_t('Sign up')}</span></button>
+                        style={{ marginTop: '25px' }}
+                    >
+                        <span>Sign up</span></button>
                 </form>
 
             </div>
