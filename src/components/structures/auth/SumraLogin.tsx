@@ -97,7 +97,6 @@ interface IState {
 export default class SumraLogin extends React.PureComponent<IProps, IState> {
     static replaces = "LoginComponent";
 
-
     private unmounted = false;
     private loginLogic: Login;
 
