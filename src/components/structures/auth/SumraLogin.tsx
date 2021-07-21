@@ -158,6 +158,8 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
 
     isBusy = () => this.state.busy || this.props.busy;
 
+
+    
     onPasswordLogin = async (username, phoneCountry, phoneNumber, password) => {
         if (!this.state.serverIsAlive) {
             this.setState({busy: true});
