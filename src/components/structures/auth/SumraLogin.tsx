@@ -14,22 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, {ReactNode} from 'react';
-import {_t, _td} from 'matrix-react-sdk/src/languageHandler';
-import Login, {ISSOFlow, LoginFlow} from 'matrix-react-sdk/src/Login';
+import React, { ReactNode } from 'react';
+import { _t, _td } from 'matrix-react-sdk/src/languageHandler';
+import Login, { ISSOFlow, LoginFlow } from 'matrix-react-sdk/src/Login';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 import { messageForResourceLimitError } from 'matrix-react-sdk/src/utils/ErrorUtils';
-import AutoDiscoveryUtils, {ValidatedServerConfig} from "matrix-react-sdk/src/utils/AutoDiscoveryUtils";
+import AutoDiscoveryUtils, { ValidatedServerConfig } from "matrix-react-sdk/src/utils/AutoDiscoveryUtils";
 import classNames from "classnames";
 import PlatformPeg from 'matrix-react-sdk/src/PlatformPeg';
 import SettingsStore from "matrix-react-sdk/src/settings/SettingsStore";
-import {UIFeature} from "matrix-react-sdk/src/settings/UIFeature";
+import { UIFeature } from "matrix-react-sdk/src/settings/UIFeature";
 import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
-import {IMatrixClientCreds} from "matrix-react-sdk/src/MatrixClientPeg";
-import SSOButtons from "../../views/elements/SSOButtons"
-import logo from "../../../../res/images/sumra/logo.svg"
+import { IMatrixClientCreds } from "matrix-react-sdk/src/MatrixClientPeg";
+import SSOButtons from "../../views/elements/SSOButtons";
+import logo from "../../../../res/images/sumra/logo.svg";
 import * as sdk from "matrix-react-sdk/src/index";
-import SumrachatLogo from "../../views/auth/SumrachatLogo.jsx"
+import SumrachatLogo from "../../views/auth/SumrachatLogo.jsx";
 
 // These are used in several places, and come from the js-sdk's autodiscovery
 // stuff. We define them here so that they'll be picked up by i18n.
@@ -158,11 +158,9 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
 
     isBusy = () => this.state.busy || this.props.busy;
 
-
-    
     onPasswordLogin = async (username, phoneCountry, phoneNumber, password) => {
         if (!this.state.serverIsAlive) {
-            this.setState({busy: true});
+            this.setState({ busy: true });
             // Do a quick liveliness check on the URLs
             let aliveAgain = true;
             try {
@@ -170,7 +168,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
                     this.props.serverConfig.hsUrl,
                     this.props.serverConfig.isUrl,
                 );
-                this.setState({serverIsAlive: true, errorText: ""});
+                this.setState({ serverIsAlive: true, errorText: "" });
             } catch (e) {
                 const componentState = AutoDiscoveryUtils.authComponentStateForError(e);
                 this.setState({
@@ -187,7 +185,6 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
             }
         }
 
-
         this.setState({
             busy: true,
             busyLoggingIn: true,
@@ -198,7 +195,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         this.loginLogic.loginViaPassword(
             username, phoneCountry, phoneNumber, password,
         ).then((data) => {
-            this.setState({serverIsAlive: true}); // it must be, we logged in.
+            this.setState({ serverIsAlive: true }); // it must be, we logged in.
             this.props.onLoggedIn(data, password);
         }, (error) => {
             if (this.unmounted) {
@@ -249,7 +246,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
                             <div className="mx_Login_smallError">
                                 {_t(
                                     'Please note you are logging into the %(hs)s server, not matrix.org.',
-                                    {hs: this.props.serverConfig.hsName},
+                                    { hs: this.props.serverConfig.hsName },
                                 )}
                             </div>
                         </div>
@@ -360,7 +357,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         }
     };
 
-    private async initLoginLogic({hsUrl, isUrl}: ValidatedServerConfig) {
+    private async initLoginLogic({ hsUrl, isUrl }: ValidatedServerConfig) {
         let isDefaultServer = false;
         if (this.props.serverConfig.isDefault
             && hsUrl === this.props.serverConfig.hsUrl
@@ -498,9 +495,9 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         return <React.Fragment>
             { flows.map(flow => {
                 const stepRenderer = this.stepRendererMap[flow.type];
-                return <React.Fragment key={flow.type}>{ stepRenderer() }</React.Fragment>
+                return <React.Fragment key={flow.type}>{ stepRenderer() }</React.Fragment>;
             }) }
-        </React.Fragment>
+        </React.Fragment>;
     }
 
     private renderPasswordStep = () => {
@@ -539,7 +536,6 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
                 primary={!this.state.flows.find(flow => flow.type === "m.login.password")}
             />
 
-
         );
     };
 
@@ -548,9 +544,9 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         const AuthBody = sdk.getComponent("auth.AuthBody");
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
 
-        const InlineSpinner = sdk.getComponent("views.elements.InlineSpinner")
-        const Spinner = sdk.getComponent("views.elements.Spinner")
-        const ServerPicker = sdk.getComponent("views.elements.ServerPicker")
+        const InlineSpinner = sdk.getComponent("views.elements.InlineSpinner");
+        const Spinner = sdk.getComponent("views.elements.Spinner");
+        const ServerPicker = sdk.getComponent("views.elements.ServerPicker");
 
         const loader = this.isBusy() && !this.state.busyLoggingIn ?
             <div className="mx_Login_loader"><Spinner /></div> : null;
@@ -606,17 +602,15 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
             <AuthPage>
 
                 <AuthBody>
-                <SumrachatLogo />
+                    <SumrachatLogo />
                     <div className="authentification-form" >
                         <h1 className='h1-title'>
                             {_t('Login with Sumra ID')}
                             {loader}
                         </h1>
                         { errorTextSection }
-                       
+
                         { this.renderLoginComponentForFlows() }
-
-
 
                     </div>
                     <div className="sumra-terms-privacy">
