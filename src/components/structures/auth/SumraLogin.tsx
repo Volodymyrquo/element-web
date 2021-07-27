@@ -28,7 +28,6 @@ import { UIFeature } from "matrix-react-sdk/src/settings/UIFeature";
 import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
 import { IMatrixClientCreds } from "matrix-react-sdk/src/MatrixClientPeg";
 import SSOButtons from "../../views/elements/SSOButtons";
-import logo from "../../../../res/images/sumra/logo.svg";
 import * as sdk from "matrix-react-sdk/src/index";
 import SumrachatLogo from "../../views/auth/SumrachatLogo.jsx";
 
