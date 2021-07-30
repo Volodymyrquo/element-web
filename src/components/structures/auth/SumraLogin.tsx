@@ -31,6 +31,8 @@ import * as sdk from "matrix-react-sdk/src/index";
 import SumrachatLogo from "../../views/auth/SumrachatLogo.jsx";
 
 
+
+
 // These are used in several places, and come from the js-sdk's autodiscovery
 // stuff. We define them here so that they'll be picked up by i18n.
 _td("Invalid homeserver discovery response");
