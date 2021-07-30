@@ -146,9 +146,8 @@ module.exports = (env, argv) => {
                 // alias any requires to the react module to the one in our path,
                 // otherwise we tend to get the react source included twice when
                 // using `npm link` / `yarn link`.
-                react: path.resolve(__dirname, "node_modules/react"),
-                "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
-
+                react: path.resolve("./node_modules/react"),
+                "react-dom": path.resolve("./node_modules/react-dom"),
                 // same goes for js-sdk - we don't need two copies.
                 "matrix-js-sdk": path.resolve(
                     __dirname,
