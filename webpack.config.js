@@ -148,6 +148,8 @@ module.exports = (env, argv) => {
                 // using `npm link` / `yarn link`.
                 react: path.resolve("./node_modules/react"),
                 "react-dom": path.resolve("./node_modules/react-dom"),
+                "react-router-dom": path.resolve("./node_modules/react-dom"),
+
                 // same goes for js-sdk - we don't need two copies.
                 "matrix-js-sdk": path.resolve(
                     __dirname,
