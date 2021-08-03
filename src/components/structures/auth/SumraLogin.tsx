@@ -94,8 +94,6 @@ interface IState {
     serverDeadError: string;
 }
 
-
-
 /*
  * A wire component which glues together login UI components and Login logic
  */
