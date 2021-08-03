@@ -71,8 +71,6 @@ interface IProps {
     onServerConfigChange(config: ValidatedServerConfig): void;
 }
 
-
-
 interface IState {
     busy: boolean;
     busyLoggingIn?: boolean;
