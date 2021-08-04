@@ -96,7 +96,6 @@ interface IState {
 
 
 
-
 /*
  * A wire component which glues together login UI components and Login logic
  */
@@ -110,7 +109,6 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
 
     constructor(props) {
         super(props);
-
 
         
         this.state = {
