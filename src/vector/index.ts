@@ -39,7 +39,7 @@ async function settled(...promises: Array<Promise<any>>) {
     }
 }
 
-function checkBrowserFeatures() {
+/* function checkBrowserFeatures() {
     if (!window.Modernizr) {
         console.error("Cannot check features - Modernizr global is missing.");
         return false;
@@ -82,8 +82,8 @@ function checkBrowserFeatures() {
     }
     return featureComplete;
 }
-
-const supportedBrowser = checkBrowserFeatures();
+ */
+/* const supportedBrowser = checkBrowserFeatures(); */
 
 // React depends on Map & Set which we check for using modernizr's es6collections
 // if modernizr fails we may not have a functional react to show the error message.
@@ -104,7 +104,7 @@ async function start() {
         loadTheme,
         loadApp,
         showError,
-        showIncompatibleBrowser,
+        /*       showIncompatibleBrowser, */
         _t,
     } = await import(
         /* webpackChunkName: "init" */
@@ -154,15 +154,15 @@ async function start() {
         // await things settling so that any errors we have to render have features like i18n running
         await settled(loadSkinPromise, loadThemePromise, loadLanguagePromise);
 
-        let acceptBrowser = supportedBrowser;
+        /*         let acceptBrowser = supportedBrowser;
         if (!acceptBrowser && window.localStorage) {
             acceptBrowser = Boolean(window.localStorage.getItem("mx_accepts_unsupported_browser"));
         }
-
+ */
         // ##########################
         // error handling begins here
         // ##########################
-        if (!acceptBrowser) {
+        /*  if (!acceptBrowser) {
             await new Promise<void>(resolve => {
                 console.error("Browser is missing required features.");
                 // take to a different landing page to AWOOOOOGA at the user
@@ -174,7 +174,7 @@ async function start() {
                     resolve();
                 });
             });
-        }
+        } */
 
         try {
             // await config here
@@ -231,7 +231,7 @@ start().catch(err => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore - typescript seems to only like the IE syntax for iframe sandboxing
     iframe["sandbox"] = "";
-    iframe.src = supportedBrowser ? "static/unable-to-load.html" : "static/incompatible-browser.html";
+    /*  iframe.src = supportedBrowser ? "static/unable-to-load.html" : "static/incompatible-browser.html"; */
     iframe.style.width = "100%";
     iframe.style.height = "100%";
     iframe.style.position = "absolute";
