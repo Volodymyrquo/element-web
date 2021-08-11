@@ -91,8 +91,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         };
     }
 
-    
-    private onForgotPasswordClick = ev => {
+        private onForgotPasswordClick = ev => {
         ev.preventDefault();
         ev.stopPropagation();
         this.props.onForgotPasswordClick();
