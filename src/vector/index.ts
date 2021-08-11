@@ -176,6 +176,8 @@ async function start() {
             });
         } */
 
+
+        
         try {
             // await config here
             await loadConfigPromise;
