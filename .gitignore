@@ -16,7 +16,6 @@ electron/pub
 /config.json
 /config.json.*
 /config.local*.json
-/src/component-index.js
 /.tmp
 /webpack-stats.json
 .vscode
