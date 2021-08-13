@@ -46,7 +46,7 @@ const socialLinks = [
         image: Discord,
         title: "Discord",
         href: "https://discord.com/invite/75xbhgmbvP",
-        hrefMobile: "#",
+        hrefMobile: "https://discord.com/invite/75xbhgmbvP",
     },
     /*     {
         image: WeChat,
