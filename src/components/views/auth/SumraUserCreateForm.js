@@ -54,7 +54,10 @@ export default class SumraUserCreateForm extends Component {
         const AuthBody = sdk.getComponent("auth.AuthBody");
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
 
-        let message, personIconSrc, validIconSrc, filedsetClassName;
+        let message;
+        let personIconSrc;
+        let validIconSrc;
+        let filedsetClassName;
 
         if (!username) {
             filedsetClassName = "sumra-input-fieldset";
@@ -168,7 +171,6 @@ export default class SumraUserCreateForm extends Component {
      * @returns {void}
      */
     _submitUserForm = async (event) => {
-        debugger;
         event.preventDefault();
 
         const response = await makeFetch(END_POINTS.REGISTRATION, {
@@ -193,7 +195,7 @@ export default class SumraUserCreateForm extends Component {
             localStorage.setItem("mx_crypto_initialised", true);
 
             location.href = location.origin + "/#/home";
-            location.reload();
+            setTimeout(() => location.reload(), 100);
         }
     };
 
