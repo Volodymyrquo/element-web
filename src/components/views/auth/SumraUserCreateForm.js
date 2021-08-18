@@ -133,6 +133,7 @@ export default class SumraUserCreateForm extends Component {
             </AuthPage>
         );
     }
+    /* comment */
 
     /**
      * Set state after changed verification code.
