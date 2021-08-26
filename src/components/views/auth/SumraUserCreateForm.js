@@ -13,7 +13,7 @@ import checkGreen from "../../../../res/vector-icons/icon-check-green.svg";
 import * as sdk from "matrix-react-sdk/src/index";
 import logo from "../../../../res/images/sumra/logo.svg";
 import SumrachatLogo from "./SumrachatLogo.jsx";
-
+/* sdafjklg */
 /**
  * Sumra: Create user
  *
