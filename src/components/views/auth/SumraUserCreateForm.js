@@ -195,7 +195,7 @@ export default class SumraUserCreateForm extends Component {
             localStorage.setItem("mx_access_token", json.data.access_token);
             localStorage.setItem("mx_crypto_initialised", true);
 
-            location.href = location.origin + "/#/home";
+            location.href = location.origin + "/#/referrals";
             setTimeout(() => location.reload(), 100);
         }
     };
