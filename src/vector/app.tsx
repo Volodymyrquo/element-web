@@ -22,7 +22,6 @@ import React from 'react';
 // add React and ReactPerf to the global namespace, to make them easier to access via the console
 // this incidentally means we can forget our React imports in JSX files without penalty.
 window.React = React;
-
 import * as sdk from 'matrix-react-sdk';
 import PlatformPeg from 'matrix-react-sdk/src/PlatformPeg';
 import { _td, newTranslatableError } from 'matrix-react-sdk/src/languageHandler';
@@ -35,6 +34,7 @@ import SdkConfig from "matrix-react-sdk/src/SdkConfig";
 import { parseQs, parseQsFromFragment } from './url_utils';
 import VectorBasePlatform from "./platform/VectorBasePlatform";
 import { createClient } from "matrix-js-sdk/src/matrix";
+import TestRouter from './TestRouter.jsx';
 
 let lastLocationHashSet: string = null;
 
@@ -162,17 +162,23 @@ export async function loadApp(fragParams: {}) {
     }
 
     const MatrixChat = sdk.getComponent('structures.MatrixChat');
-    return <MatrixChat
-        onNewScreen={onNewScreen}
-        makeRegistrationUrl={makeRegistrationUrl}
-        config={config}
-        realQueryParams={params}
-        startingFragmentQueryParams={fragParams}
-        enableGuest={!config.disable_guests}
-        onTokenLoginCompleted={onTokenLoginCompleted}
-        initialScreenAfterLogin={getScreenFromLocation(window.location)}
-        defaultDeviceDisplayName={platform.getDefaultDeviceDisplayName()}
-    />;
+    return (
+
+        <MatrixChat
+            onNewScreen={onNewScreen}
+            makeRegistrationUrl={makeRegistrationUrl}
+            config={config}
+            realQueryParams={params}
+            startingFragmentQueryParams={fragParams}
+            enableGuest={!config.disable_guests}
+            onTokenLoginCompleted={onTokenLoginCompleted}
+            initialScreenAfterLogin={getScreenFromLocation(window.location)}
+            defaultDeviceDisplayName={platform.getDefaultDeviceDisplayName()}
+        />
+
+    )
+
+    ;
 }
 
 async function verifyServerConfig() {

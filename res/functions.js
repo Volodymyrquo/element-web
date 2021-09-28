@@ -2,20 +2,12 @@
  * Const adrees server and points for request
  */
 export const END_POINTS = {
-    SERVER: "https://api.sumra.net/",
-    SEND_CODE: "auth/v1/send-code",
+    SERVER: "https://onestepid.com/",
+    SEND_CODE: "api/v1/send-code",
     VALIDATE: "auth/v1/validate",
     REGISTRATION: "auth/v1/registration",
     AUTHENTIFICATION: "auth/v1/chat/authenticate",
 };
-
-/* export const END_POINTS = {
-    SERVER: "https://d4daab16bedc.ngrok.io/",
-    SEND_CODE: "send-code",
-    VALIDATE: "validate",
-    REGISTRATION: "registration",
-    AUTHENTIFICATION: "chat/authenticate",
-}; */
 
 /**
  * makeId.
@@ -44,6 +36,7 @@ export async function makeFetch(action, data) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            accept: "application/json",
         },
     });
 }

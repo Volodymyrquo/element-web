@@ -181,9 +181,8 @@ export default class SumraWelcome extends React.PureComponent {
         phone = phone.replace("+", "");
         this.setState({ phone });
 
-        makeFetch("auth/v1/send-code", {
+        makeFetch("api/v1/sms/send-phone", {
             phone_number: phone,
-            app_uid: "chat.sumra.web",
         }).then(
             (response) => console.log,
             (error) => console.error

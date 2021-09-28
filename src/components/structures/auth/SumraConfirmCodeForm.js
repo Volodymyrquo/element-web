@@ -184,9 +184,8 @@ export default class SumraConfirmCodeForm extends Component {
 
         const phone = localStorage.getItem("href").replace("+", "");
 
-        makeFetch("auth/v1/send-code", {
+        makeFetch("api/v1/sms/send-phone", {
             phone_number: phone,
-            app_uid: "chat.sumra.web",
         }).then(
             (response) => console.log,
             (error) => console.error

@@ -1,11 +1,11 @@
 {
     "default_server_config": {
         "m.homeserver": {
-            "base_url": "https://syn.sumra.net",
-            "server_name": "syn.sumra.net"
+            "base_url": "https://syn.sumrachat.com",
+            "server_name": "syn.sumrachat.com"
         },
         "m.identity_server": {
-            "base_url": "https://syn.sumra.net"
+            "base_url": "https://syn.sumrachat.com"
         }
     },
     "disable_custom_urls": false,
@@ -17,7 +17,7 @@
     "integrations_rest_url": "https://dn.sumra.net/api/v1/scalar",
     "integrations_widgets_urls": ["https://dn.sumra.net/widgets"],
     "integrations_jitsi_widget_url": "https://dn.sumra.net/widgets/jitsi",
-    "bug_report_endpoint_url": "https://syn.sumra.net/bugreports/submit",
+    "bug_report_endpoint_url": "https://syn.sumrachat.com/bugreports/submit",
     "defaultCountryCode": "UK",
     "showLabsSettings": false,
     "features": {
@@ -31,22 +31,22 @@
     "default_federate": true,
     "default_theme": "light",
     "roomDirectory": {
-        "servers": ["syn.sumra.net"]
+        "servers": ["syn.sumrachat.com"]
     },
-    "welcomeUserId": "@bot:syn.sumra.net",
+    "welcomeUserId": "@bot:syn.sumrachat.com",
     "piwik": {
         "url": "https://analytics.sumra.net/",
-        "whitelistedHSUrls": ["https://synn.sumra.net"],
-        "whitelistedISUrls": ["https://synn.sumra.net"],
+        "whitelistedHSUrls": ["https://syn.sumrachat.com"],
+        "whitelistedISUrls": ["https://syn.sumrachat.com"],
         "siteId": 3
     },
     "enable_presence_by_hs_url": {
-        "https://syn.sumra.net": false
+        "https://syn.sumrachat.com": false
     },
     "settingDefaults": {
         "breadcrumbs": true
     },
     "jitsi": {
-        "preferredDomain": "meet.sumra.net"
+        "preferredDomain": "sumrameet.com"
     }
 }

@@ -48,12 +48,12 @@ module.exports = (env, argv) => {
     const reactSdkSrcDir = path.resolve(
         require.resolve("matrix-react-sdk/package.json"),
         "..",
-        "src",
+        "src"
     );
     const jsSdkSrcDir = path.resolve(
         require.resolve("matrix-js-sdk/package.json"),
         "..",
-        "src",
+        "src"
     );
 
     return {
@@ -153,16 +153,16 @@ module.exports = (env, argv) => {
                 // same goes for js-sdk - we don't need two copies.
                 "matrix-js-sdk": path.resolve(
                     __dirname,
-                    "node_modules/matrix-js-sdk",
+                    "node_modules/matrix-js-sdk"
                 ),
                 // and prop-types and sanitize-html
                 "prop-types": path.resolve(
                     __dirname,
-                    "node_modules/prop-types",
+                    "node_modules/prop-types"
                 ),
                 "sanitize-html": path.resolve(
                     __dirname,
-                    "node_modules/sanitize-html",
+                    "node_modules/sanitize-html"
                 ),
 
                 // Define a variable so the i18n stuff can load
@@ -194,7 +194,9 @@ module.exports = (env, argv) => {
                     test: /\.(ts|js)x?$/,
                     include: (f) => {
                         // our own source needs babel-ing
-                        if (f.startsWith(path.resolve(__dirname, "src"))) {return true;}
+                        if (f.startsWith(path.resolve(__dirname, "src"))) {
+                            return true;
+                        }
 
                         // we use the original source files of react-sdk and js-sdk, so we need to
                         // run them through babel. Because the path tested is the resolved, absolute
@@ -388,16 +390,16 @@ module.exports = (env, argv) => {
                                 esModule: false,
                                 name: "[name].[hash:7].[ext]",
                                 outputPath: getAssetOutputPath,
-                                publicPath: function(url, resourcePath) {
+                                publicPath: function (url, resourcePath) {
                                     // CSS image usages end up in the `bundles/[hash]` output
                                     // directory, so we adjust the final path to navigate up
                                     // twice.
                                     const outputPath = getAssetOutputPath(
                                         url,
-                                        resourcePath,
+                                        resourcePath
                                     );
                                     return toPublicPath(
-                                        path.join("../..", outputPath),
+                                        path.join("../..", outputPath)
                                     );
                                 },
                             },
@@ -409,10 +411,10 @@ module.exports = (env, argv) => {
                                 esModule: false,
                                 name: "[name].[hash:7].[ext]",
                                 outputPath: getAssetOutputPath,
-                                publicPath: function(url, resourcePath) {
+                                publicPath: function (url, resourcePath) {
                                     const outputPath = getAssetOutputPath(
                                         url,
-                                        resourcePath,
+                                        resourcePath
                                     );
                                     return toPublicPath(outputPath);
                                 },
@@ -519,6 +521,7 @@ module.exports = (env, argv) => {
             // tedious in Riot since that can take a while.
             hot: false,
             inline: false,
+            historyApiFallback: true,
         },
     };
 };
