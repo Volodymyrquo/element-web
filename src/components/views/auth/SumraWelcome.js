@@ -28,6 +28,7 @@ import send from "../../../../res/vector-icons/send.svg";
 import logo from "../../../../res/images/sumra/logo.svg";
 import WelcomeCarousel from "./WelcomeCarousel.jsx";
 import SumrachatLogo from "./SumrachatLogo.jsx";
+import Auth from "component-auth-one-step";
 
 // translatable strings for Welcome pages
 _td("Sign in with SSO");
@@ -66,18 +67,20 @@ export default class SumraWelcome extends React.PureComponent {
                 </li>
             );
         });
-
+        const Slide1 = "https://i.ibb.co/6wfQbxz/slide-1-min.png";
+        const Slide2 = "https://i.ibb.co/Pgb7k0p/slide-2-min.png";
+        const logo = "https://i.ibb.co/1mZ8RQB/logo.png";
+        const img = [logo, Slide1, Slide2];
         return (
             <AuthPage>
                 <AuthBody>
+                    <Auth type="app" img={img} />
+                    {/*  
                     <div className="sumra-welcome-carousel">
                         <WelcomeCarousel />
                     </div>
-
-                    <div className="sumra-welcome-carousel">
-                        <WelcomeCarousel />
-                    </div>
-                    <div className="sumra-welcome-main">
+                  
+                                  <div className="sumra-welcome-main">
                         <SumrachatLogo />
                         <div className="sumra-auth-form">
                             <section className="sumra-auth-login">
@@ -126,6 +129,7 @@ export default class SumraWelcome extends React.PureComponent {
                             <a href="#">Terms & Privacy Policy.</a>
                         </div>
                     </div>
+ */}{" "}
                 </AuthBody>
             </AuthPage>
         );
@@ -170,7 +174,7 @@ export default class SumraWelcome extends React.PureComponent {
     _submitPhoneNumber = (event) => {
         event.preventDefault();
 
-        let { phone } = this.state;
+        const { phone } = this.state;
         localStorage.setItem("messenger", phone);
         localStorage.setItem("href", phone);
 
@@ -178,10 +182,10 @@ export default class SumraWelcome extends React.PureComponent {
             return;
         }
 
-        phone = phone.replace("+", "");
+        /*  phone = phone.replace("+", ""); */
         this.setState({ phone });
 
-        makeFetch("api/v1/sms/send-phone", {
+        makeFetch("api/v1/sms/send-sms", {
             phone_number: phone,
         }).then(
             (response) => console.log,

@@ -182,10 +182,10 @@ export default class SumraConfirmCodeForm extends Component {
     _resendCodeOnPhone = (event) => {
         event.preventDefault();
 
-        const phone = localStorage.getItem("href").replace("+", "");
+        const phone = localStorage.getItem("href"); /* .replace("+", "") */
 
         makeFetch("api/v1/sms/send-phone", {
-            phone_number: phone,
+            phone_number: `xxx${phone}`,
         }).then(
             (response) => console.log,
             (error) => console.error
