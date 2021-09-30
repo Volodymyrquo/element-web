@@ -1,13 +1,13 @@
-import Telegram from "../../../../res/images/sumra/messengers/Telegram.svg";
-import Viber from "../../../../res/images/sumra/messengers/Viber.svg";
-import Messenger from "../../../../res/images/sumra/messengers/Messanger.svg";
-import WhatsApp from "../../../../res/images/sumra/messengers/WhatsApp.svg";
-import Signal from "../../../../res/images/sumra/messengers/Signal.svg";
-import Line from "../../../../res/images/sumra/messengers/Line.svg";
-import Discord from "../../../../res/images/sumra/messengers/Discord.svg";
-import Groupme from "../../../../res/images/sumra/messengers/Groupme.svg";
-import WeChat from "../../../../res/images/sumra/messengers/WeChat.svg";
-import Snapchat from "../../../../res/images/sumra/messengers/Snapchat.svg";
+const Telegram = "https://i.ibb.co/Fhx3mF6/Telegram.png";
+const Viber = "https://i.ibb.co/xf7k2GW/Viber.png";
+const Messenger = "https://i.ibb.co/2N5Tygv/Messanger.png";
+const WhatsApp = "https://i.ibb.co/fkrN4zV/WhatsApp.png";
+const Signal = "https://i.ibb.co/k1hvXCc/Signal.png";
+const Line = "https://i.ibb.co/r4tjCDx/Line.png";
+const Discord = "https://i.ibb.co/Vq1jrF2/Discord.png";
+const Groupme = "https://i.ibb.co/HYJB5Qb/Groupme.png";
+const WeChat = "https://i.ibb.co/qkG6bc7/WeChat.png";
+const Snapchat = "https://i.ibb.co/ckK92XL/Snapchat.png";
 
 const socialLinks = [
     {
