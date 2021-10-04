@@ -14,8 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
-
 import React from 'react';
 import classNames from 'classnames';
 import * as sdk from "matrix-react-sdk/src/index";
@@ -55,7 +53,8 @@ interface IProps {
 interface IState {
     fieldValid: Partial<Record<LoginField, boolean>>;
     loginType: LoginField.Email | LoginField.MatrixId | LoginField.Phone;
-    password: "";
+    password: string;
+    inputTypePassword: boolean;
 }
 
 enum LoginField {
@@ -88,14 +87,15 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
             fieldValid: {},
             loginType: LoginField.MatrixId,
             password: "",
+            inputTypePassword: true,
         };
     }
 
         private onForgotPasswordClick = ev => {
-        ev.preventDefault();
-        ev.stopPropagation();
-        this.props.onForgotPasswordClick();
-    };
+            ev.preventDefault();
+            ev.stopPropagation();
+            this.props.onForgotPasswordClick();
+        };
 
     private onSubmitForm = async ev => {
         ev.preventDefault();
@@ -170,7 +170,12 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
 
     private onPasswordChanged = ev => {
         this.setState({ password: ev.target.value });
+    }; 
+
+    private toggleInputType = ()=> {
+        this.setState({ inputTypePassword: !this.state.inputTypePassword });
     };
+   
 
     private async verifyFieldsBeforeSubmit() {
         // Blur the active element if any, so we first run its blur validation,
@@ -421,8 +426,10 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         }
     }
 
+ 
     render() {
         let forgotPasswordJsx;
+        const inputType = this.state.inputTypePassword?"password":"text";
 
         if (this.props.onForgotPasswordClick) {
             forgotPasswordJsx = <AccessibleButton
@@ -494,12 +501,12 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                     <fieldset className="sumra-input-fieldset">
 
                         <input
-                            type="password"
+                            type={inputType}
                             placeholder="Enter password"
                             value={this.state.password}
                             onChange={this.onPasswordChanged}
                         />
-                        <img className="sumra-input-fieldset-icon" src={eye} />
+                        <img onClick={this.toggleInputType} className="sumra-input-fieldset-icon" src={eye} />
                     </fieldset>
 
                     <button className="sumra-Button"

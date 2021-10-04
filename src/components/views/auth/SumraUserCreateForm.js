@@ -188,8 +188,8 @@ export default class SumraUserCreateForm extends Component {
             });
         }
         if (json.success) {
-            localStorage.setItem("mx_hs_url", "https://syn.sumra.net/");
-            localStorage.setItem("mx_is_url", "https://syn.sumra.net/");
+            localStorage.setItem("mx_hs_url", "https://syn.sumrachat.com/");
+            localStorage.setItem("mx_is_url", "https://syn.sumrachat.com/");
             localStorage.setItem("mx_device_id", json.data.device_id);
             localStorage.setItem("mx_user_id", json.data.user_id);
             localStorage.setItem("mx_access_token", json.data.access_token);

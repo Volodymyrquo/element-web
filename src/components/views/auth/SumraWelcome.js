@@ -52,7 +52,7 @@ export default class SumraWelcome extends React.PureComponent {
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
         const AuthBody = sdk.getComponent("auth.AuthBody");
 
-        const links = socialLinks.map((v, index) => {
+        /*         const links = socialLinks.map((v, index) => {
             let href = "";
             if (isMobile) {
                 href = v.hrefMobile;
@@ -67,7 +67,7 @@ export default class SumraWelcome extends React.PureComponent {
                 </li>
             );
         });
-        const Slide1 = "https://i.ibb.co/6wfQbxz/slide-1-min.png";
+ */ const Slide1 = "https://i.ibb.co/6wfQbxz/slide-1-min.png";
         const Slide2 = "https://i.ibb.co/Pgb7k0p/slide-2-min.png";
         const logo = "https://i.ibb.co/1mZ8RQB/logo.png";
         const img = [logo, Slide1, Slide2];
@@ -75,13 +75,17 @@ export default class SumraWelcome extends React.PureComponent {
         return (
             <AuthPage>
                 <AuthBody>
-                    <Auth type="app" img={img} socialLinks={socialLinks} />
-                    {/*  
-                    <div className="sumra-welcome-carousel">
+                    <Auth
+                        type="app"
+                        img={img}
+                        socialLinks={socialLinks}
+                        getPath={this.getPath}
+                    />
+                    {/*                     <div className="sumra-welcome-carousel">
                         <WelcomeCarousel />
                     </div>
-                  
-                                  <div className="sumra-welcome-main">
+
+                    <div className="sumra-welcome-main">
                         <SumrachatLogo />
                         <div className="sumra-auth-form">
                             <section className="sumra-auth-login">
@@ -193,5 +197,9 @@ export default class SumraWelcome extends React.PureComponent {
             (error) => console.error
         );
         location.href = location.origin + "/#/register";
+    };
+
+    getPath = (path) => {
+        location.href = location.origin + `/#${path}`;
     };
 }

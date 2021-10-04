@@ -31,7 +31,6 @@ export function makeid(length) {
  */
 
 export async function makeFetch(action, data) {
-    debugger;
     return fetch(END_POINTS.SERVER + action, {
         body: JSON.stringify(data),
         method: "POST",
