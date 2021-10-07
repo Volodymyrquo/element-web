@@ -200,6 +200,10 @@ export default class SumraWelcome extends React.PureComponent {
     };
 
     getPath = (path) => {
-        location.href = location.origin + `/#${path}`;
+        /* event.preventDefault(); */
+        const http = location.origin + `/#${path}`;
+
+        console.log(http);
+        location.assign(http);
     };
 }
