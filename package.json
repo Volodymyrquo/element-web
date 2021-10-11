@@ -157,7 +157,8 @@
         "webpack": "^4.46.0",
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.2",
-        "worker-loader": "^2.0.0"
+        "worker-loader": "^2.0.0",
+        "source-map-loader": "^1.0.0"
     },
     "jest": {
         "testEnvironment": "jest-environment-jsdom-sixteen",

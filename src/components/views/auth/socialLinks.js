@@ -16,13 +16,13 @@ const socialLinks = [
         href: "https://t.me/sumrabot",
         hrefMobile: "tg://resolve?domain=SumraBot",
     },
-    /*   {
+    {
         image: WhatsApp,
         title: "WhatsApp",
         href: "https://api.whatsapp.com/send/?phone=14155238886&text=join%20stage-nine&app_absent=0",
         hrefMobile: "https://wa.me/14155238886",
-    }, */
-    /* 
+    },
+    /*
     {
         image: Messenger,
         title: "Messenger",

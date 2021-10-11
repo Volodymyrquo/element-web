@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[34],{2009:function(e,a,n){"use strict";n.r(a);var l=n(81),r=n.n(l),t=n(1059),s=n(1037);a.default=()=>r.a.createElement(t.b,null,r.a.createElement("div",{className:"sumra-referrals-main"},r.a.createElement(s.a,null)))}}]);
+//# sourceMappingURL=34.js.map
